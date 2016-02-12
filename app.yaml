@@ -1,0 +1,10 @@
+application: m7proxy
+version: secureable
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /.*
+  script: mirror.py
+  secure: optional
