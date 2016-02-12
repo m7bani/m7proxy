@@ -1,0 +1,13 @@
+Ñò
+ÒéûOc           @   s  d  Z  d d k Z d d k Z d d k Z d Z d Z d Z d Z d Z d Z	 d	 Z
+ d
+ Z e	 e d f e	 e d f e	 e d
+ f e	 e d f e	 e d f e
+ e d f e
+ e d f e
+ e d f e
+ e d f e e d f e e d f e e d f e e d f g
+ Z d „  Z
+ d S(   s"   Brett Slatkin (bslatkin@gmail.com)iÿÿÿÿNs$   (http(s?):)?//(?P<url>[^\"'> \t\)]+)s4   /(?!(/)|(http(s?)://)|(url\())(?P<url>[^\"'> \t\)]*)sI   (?P<relative>\.(\.)?)/(?!(/)|(http(s?)://)|(url\())(?P<url>[^\"'> \t\)]*)s3   (?!(/)|(http(s?)://)|(url\())(?P<url>[^\"'> \t\)]+)s*   (?!//(?!>))/(?P<url>)(?=[ \t\n]*[\"'\)>/])sW   (?i)\b(?P<tag>src|href|action|url|background)(?P<equals>[\t ]*=[\t ]*)(?P<quote>[\"']?)s/   (?i)@import(?P<spacing>[\t ]+)(?P<quote>[\"']?)s   (?i)\burl\((?P<quote>[\"']?)s1   \g<tag>\g<equals>\g<quote>%(accessed_dir)s\g<url>s?   \g<tag>\g<equals>\g<quote>%(accessed_dir)s/\g<relative>/\g<url>s+   \g<tag>\g<equals>\g<quote>/%(base)s/\g<url>s$   \g<tag>\g<equals>\g<quote>/%(base)s/s"   \g<tag>\g<equals>\g<quote>/\g<url>s2   @import\g<spacing>\g<quote>%(accessed_dir)s\g<url>s@   @import\g<spacing>\g<quote>%(accessed_dir)s/\g<relative>/\g<url>s,   @import\g<spacing>\g<quote>/%(base)s/\g<url>s#   @import\g<spacing>\g<quote>/\g<url>s$   url(\g<quote>%(accessed_dir)s\g<url>s2   url(\g<quote>%(accessed_dir)s/\g<relative>/\g<url>s   url(\g<quote>/%(base)s/\g<url>s   url(\g<quote>/\g<url>c         C   sŠ   t  i  | ƒ } t i i | i ƒ } | i d ƒ p | d 7} n xA t D]9 \ } } | h |  d 6| d 6} t i | | | ƒ } qI W| S(   Nt   /t   baset   accessed_dir(   t   urlparset   ost   patht   dirnamet   endswitht   REPLACEMENT_REGEXESt   ret   sub(   t   base_urlt   accessed_urlt   contentt   url_objR   t   patternt   replacementt   fixed_replacement(    (    s>   C:\Users\soufiane\Desktop\Nouveau dossier\transform_content.pyt   TransformContent^   s     (   t
+   __author__R   R	   R   t   ABSOLUTE_URL_REGEXt   BASE_RELATIVE_URL_REGEXt   TRAVERSAL_URL_REGEXt   SAME_DIR_URL_REGEXt   ROOT_DIR_URL_REGEXt	   TAG_STARTt   CSS_IMPORT_STARTt
+   CSS_URL_STARTR   R   (    (    (    s>   C:\Users\soufiane\Desktop\Nouveau dossier\transform_content.pyt   <module>   sL   
